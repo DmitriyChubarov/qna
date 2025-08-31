@@ -32,3 +32,10 @@ class QuestionDetailView(APIView):
             return Response({"error": str(error)}, status=status.HTTP_400_BAD_REQUEST)
         serializer: QuestionSerializer = QuestionSerializer(question)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def delete(self, request, question_id: int) -> Response:
+        try:
+            QuestionService.delete_question_or_error(question_id)
+        except ValueError as error:
+            return Response({"error": str(error)}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(status=status.HTTP_204_NO_CONTENT)
