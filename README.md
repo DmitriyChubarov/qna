@@ -31,8 +31,8 @@ cd qna
 ```
 Собираем Docker образ и запускаем сервис:
 ```bash
-docker-compose build
-docker-compose up
+docker compose build
+docker compose up
 ```
 Открываем новое окно терминала, переходим в папку проекта, применяем миграции, создаём суперпользователя и запускаем тесты:
 ```bash
