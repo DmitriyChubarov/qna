@@ -29,7 +29,7 @@ cd /ваш/путь
 git clone https://github.com/DmitriyChubarov/qna.git
 cd qna
 ```
-Собираем Docker образ и запускаем сервис:
+Запускаем Docker на устройстве, после чего собираем Docker образ и запускаем сервис:
 ```bash
 docker compose build
 docker compose up
