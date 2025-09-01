@@ -1,37 +1,39 @@
 from rest_framework.test import APITestCase
 from rest_framework import status
 from .models import Question
+from qna.tests import TestCreate, TestGet, TestDelete
 
-class QuestionTestCase(APITestCase):
+class QuestionTestCase(APITestCase, TestCreate, TestGet, TestDelete):
 
     def setUp(self):
-        self.question = Question.objects.create(text="test question")
+        self.question = Question.objects.create(text="test test")
 
     def test_create_question(self):
-        url = '/questions/'
-        data = {'text': 'test question_2'}
-        response = self.client.post(url, data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(Question.objects.count(), 2)
-        self.assertEqual(Question.objects.filter(text='test question_2').count(), 1)
+        self.main_test_сreate('/questions/', Question)
 
-    def test_get_questions(self):
-        url = '/questions/'
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data[0]['text'], 'test question')
+    def test_create_null_question(self):
+        self.main_test_сreate_null('/questions/', Question)
+
+    def test_create_long_question(self):
+        self.main_test_сreate_long('/questions/', Question)
+
+    def test_create_short_question(self):
+        self.main_test_сreate_short('/questions/', Question)
+
+    def test_get_all_question(self):
+        self.main_test_get_all('/questions/', Question)
 
     def test_get_question(self):
-        url = f'/questions/{self.question.id}/'  
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data['text'], 'test question')
+        self.main_test_get(f'/questions/{self.question.id}/', Question)
 
+    def test_get_null_question(self):
+        self.main_test_get_null(f'/questions/{self.question.id + 1}/', Question)
+    
     def test_delete_question(self):
-        url = f'/questions/{self.question.id}/'
-        response = self.client.delete(url)
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-        self.assertEqual(Question.objects.count(), 0)
+        self.main_test_delete(f'/questions/{self.question.id}/', Question)
+
+
+
         
         
 

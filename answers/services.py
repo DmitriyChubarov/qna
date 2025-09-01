@@ -21,6 +21,8 @@ class AnswerService:
     def get_answer_or_error(answer_id: Answer) -> Answer:
         try:
             return AnswerRepository.get_answer(answer_id)
+        except ObjectDoesNotExist:
+            raise ValueError(f"Ответ с ID {answer_id} не найден")
         except Exception as error:
             raise ValueError(f"Произошла ошибка во время получения ответа: {error}")
 
