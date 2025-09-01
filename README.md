@@ -42,6 +42,11 @@ docker compose exec web python manage.py createsuperuser
 docker compose exec web python manage.py test
 ```
 Сервисом можно пользоваться, удачи!
+
+*Если все прошло успешно, но сервис не работает, прописать в терминале:
+```bash
+docker compose restart web
+```
   
 ### Контакты
 - tg: @eeezz_z
