@@ -36,6 +36,7 @@ docker-compose up
 ```
 Открываем новое окно терминала, переходим в папку проекта, применяем миграции, создаём суперпользователя и запускаем тесты:
 ```bash
+docker compose exec web python manage.py makemigrations
 docker compose exec web python manage.py migrate
 docker compose exec web python manage.py createsuperuser
 docker compose exec web python manage.py test
