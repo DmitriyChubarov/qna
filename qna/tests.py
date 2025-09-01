@@ -7,16 +7,16 @@ class TestCreate:
         self.assertEqual(model.objects.count(), count)
         self.assertEqual(model.objects.filter(text=text).count(), count - 1)
 
-    def main_test_сreate(self, url, model):
+    def main_test_create(self, url, model):
         self.check_create(url, model, 'correct test', status.HTTP_201_CREATED, 2)
         
-    def main_test_сreate_null(self, url, model):
+    def main_test_create_null(self, url, model):
         self.check_create(url, model, '', status.HTTP_400_BAD_REQUEST, 1)
 
-    def main_test_сreate_long(self, url, model):
+    def main_test_create_long(self, url, model):
         self.check_create(url, model, '1' * 1001, status.HTTP_400_BAD_REQUEST, 1)
 
-    def main_test_сreate_short(self, url, model):
+    def main_test_create_short(self, url, model):
         self.check_create(url, model, '1234', status.HTTP_400_BAD_REQUEST, 1)
 
 class TestGet:

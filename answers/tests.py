@@ -11,16 +11,16 @@ class QuestionTestCase(APITestCase, TestCreate, TestGet, TestDelete):
         self.answer = Answer.objects.create(text="test answer", question_id=self.question)
 
     def test_create_answer(self):
-        self.main_test_сreate(f'/questions/{self.question.id}/answers/', Answer)
+        self.main_test_create(f'/questions/{self.question.id}/answers/', Answer)
 
     def test_create_null_answer(self):
-        self.main_test_сreate_null(f'/questions/{self.question.id}/answers/', Answer)
+        self.main_test_create_null(f'/questions/{self.question.id}/answers/', Answer)
 
     def test_create_long_answer(self):
-        self.main_test_сreate_long(f'/questions/{self.question.id}/answers/', Answer)
+        self.main_test_create_long(f'/questions/{self.question.id}/answers/', Answer)
 
     def test_create_short_answer(self):
-        self.main_test_сreate_short(f'/questions/{self.question.id}/answers/', Answer)
+        self.main_test_create_short(f'/questions/{self.question.id}/answers/', Answer)
 
     def test_get_answer(self):
         self.main_test_get(f'/answers/{self.answer.id}/' , Answer)
