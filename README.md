@@ -2,17 +2,14 @@
 # API-сервис для работы с вопросами и ответами
 
 ## Возможности:
-GET http://127.0.0.1:8000/questions/ - Список всех вопросов
-POST http://127.0.0.1:8000/questions/ - Создать новый вопрос
-GET http://127.0.0.1:8000/questions/{id}/ - Получить вопрос и все ответы на него
-DELETE http://127.0.0.1:8000/questions/{id}/ - Удалить вопрос (вместе с ответами)
+- GET http://127.0.0.1:8000/questions/ - Список всех вопросов
+- POST http://127.0.0.1:8000/questions/ - Создать новый вопрос
+- GET http://127.0.0.1:8000/questions/{id}/ - Получить вопрос и все ответы на него
+- DELETE http://127.0.0.1:8000/questions/{id}/ - Удалить вопрос (вместе с ответами)
 
-POST http://127.0.0.1:8000/questions/{id}/answers/ - Добавить ответ к вопросу
-GET http://127.0.0.1:8000/answers/{id}/ - Получить конкретный ответ
-DELETE http://127.0.0.1:8000/answers/{id}/ - Удалить ответ
-
-## Приложение было опубликовано на pythonanywhere по ссылке - https://ekaterina2006.pythonanywhere.com/shop/item/
-Так как на pythonanywhere БД PostgreSQL доступна только в платной подписке, я переделал версию на сайте на MySQL. 
+- POST http://127.0.0.1:8000/questions/{id}/answers/ - Добавить ответ к вопросу
+- GET http://127.0.0.1:8000/answers/{id}/ - Получить конкретный ответ
+- DELETE http://127.0.0.1:8000/answers/{id}/ - Удалить ответ
 
 ### Технологии
 
@@ -29,7 +26,7 @@ cd /ваш/путь
 ```
 Клонируем репозотирий в эту папку, переходим в папку проекта:
 ```bash 
-git clone https://github.com/DmitriyChubarov/stripe_project.git
+git clone https://github.com/DmitriyChubarov/qna.git
 cd qna
 ```
 Собираем Docker образ и запускаем сервис:
