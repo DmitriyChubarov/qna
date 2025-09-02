@@ -13,7 +13,7 @@ class QuestionService:
         try:
             return QuestionRepository.get_questions()
         except Exception as error:
-            raise ValueError(f"Произошла ошибка во время получения запросов: {error}")
+            raise ValueError(f"Произошла ошибка во время получения вопросов: {error}")
 
     def create_question_or_error(text: str) -> Question:
         try: 
